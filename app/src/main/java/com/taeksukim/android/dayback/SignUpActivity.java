@@ -1,9 +1,11 @@
-package com.taeksukim.android.daybacklogin;
+package com.taeksukim.android.dayback;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import com.taeksukim.android.daybacklogin.R;
 
 public class SignUpActivity extends AppCompatActivity {
 

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "46809019051",
+    "project_id": "dayback-d9cc6"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46809019051:android:b63ed546aa05663e",
+        "android_client_info": {
+          "package_name": "com.taeksukim.android.daybacklogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46809019051-ss4l6qmd2fu8b2iasm95q398ssg0hcp7.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "46809019051-ejcvs4m4g6h2co2teu825gr88nubvdsq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taeksukim.android.daybacklogin",
+            "certificate_hash": "3003886479511c81c35c9e2647b50e5d5576185f"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbj8qub0kw-LwHGBxukztmgMyKmZeDTQ4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

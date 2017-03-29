@@ -1,4 +1,4 @@
-package com.taeksukim.android.daybacklogin;
+package com.taeksukim.android.dayback;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
