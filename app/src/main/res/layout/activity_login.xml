@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.taeksukim.android.daybacklogin.com.taeksukim.android.dayback.LoginActivity">
+    tools:context="com.taeksukim.android.dayback.LoginActivity">
 
     <EditText
         android:id="@+id/editId"
