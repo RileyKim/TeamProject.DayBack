@@ -1,8 +1,12 @@
 package com.taeksukim.android.dayback;
 
+import android.content.Intent;
+
+
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.taeksukim.android.daybacklogin.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    ImageView blackpen, blackavatar, blackgraph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +32,40 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Intent intent = getIntent();
+        String s = intent.getStringExtra("user");
+        String t = intent.getStringExtra("email");
+        Log.i("MainActivity", "user : " + s);
+        Log.i("MainActivity", "email :" + t);
+
+
+        // memo
+        blackpen = (ImageView) findViewById(R.id.blackPen);
+        blackpen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                //TODO
             }
         });
+
+        // graph
+        blackgraph = (ImageView) findViewById(R.id.blackgraph);
+        blackgraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+
+        //avatar
+        blackavatar = (ImageView) findViewById(R.id.blackavatar);
+        blackavatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

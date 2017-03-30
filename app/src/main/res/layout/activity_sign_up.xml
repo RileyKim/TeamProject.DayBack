@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    tools:context="com.taeksukim.android.daybacklogin.com.taeksukim.android.dayback.SignUpActivity">
+    tools:context="com.taeksukim.android.daybacklogin.com.taeksukim.android.dayback.SignUpActivity"
+    android:baselineAligned="false">
 
     <EditText
         android:id="@+id/editUpid"
