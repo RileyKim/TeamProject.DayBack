@@ -7,7 +7,7 @@ package com.taeksukim.android.dayback;
 public class User {
     String date;
     String title;
-    //String content;
+    String content;
     String name;
-    int age;
+
 }

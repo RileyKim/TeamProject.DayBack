@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity
         blackpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                Intent intent = new Intent(MainActivity.this, MemoActivity.class);
+                startActivity(intent);
             }
         });
         //------------------------------------------
