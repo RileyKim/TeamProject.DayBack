@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
 
     ArrayList<User> datas;
     RecyclerView rv;
-    ImageView blackpen, blackavatar, blackgraph;
+    ImageView whitePen, whiteAvatar, whiteGraph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity
 
         //------------------------------------------
         // MainActivity 하단 메모 이미지 버튼
-        blackpen = (ImageView) findViewById(R.id.blackPen);
-        blackpen.setOnClickListener(new View.OnClickListener() {
+        whitePen = (ImageView) findViewById(R.id.whitePen);
+        whitePen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MemoActivity.class);
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity
 
         //------------------------------------------
         // MainActivity 하단 graph 이미지 버튼
-        blackgraph = (ImageView) findViewById(R.id.blackgraph);
-        blackgraph.setOnClickListener(new View.OnClickListener() {
+        whiteGraph = (ImageView) findViewById(R.id.whiteGraph);
+        whiteGraph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO
@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity
 
         //------------------------------------------
         // MainActivity 하단 avatar 이미지버튼
-        blackavatar = (ImageView) findViewById(R.id.blackavatar);
-        blackavatar.setOnClickListener(new View.OnClickListener() {
+        whiteAvatar = (ImageView) findViewById(R.id.whiteAvatar);
+        whiteAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO

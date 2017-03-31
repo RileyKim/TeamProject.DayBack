@@ -14,7 +14,6 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
         card_view:cardBackgroundColor="@android:color/transparent"
 
         >
@@ -26,7 +25,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="1"
-            android:background="@drawable/blackstroke"
+            android:background="@drawable/background2"
             >
 
 
