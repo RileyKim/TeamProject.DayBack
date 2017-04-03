@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
 
     ArrayList<User> datas;
     RecyclerView rv;
-    ImageView whitePen, whiteAvatar, whiteGraph;
+    ImageView whitePen, whiteAvatar, whiteGraph, whiteCalendar, whiteAlarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +76,8 @@ public class MainActivity extends AppCompatActivity
         whiteGraph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                Intent intent = new Intent(MainActivity.this, GraphActivity.class);
+                startActivity(intent);
             }
         });
         //------------------------------------------
@@ -93,6 +94,27 @@ public class MainActivity extends AppCompatActivity
         });
         //------------------------------------------
 
+        //------------------------------------------
+        // whiteCalendar 이미지 버튼
+        whiteCalendar = (ImageView) findViewById(R.id.whiteCalendar);
+        whiteCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        //------------------------------------------
+
+        //------------------------------------------
+        // whiteAlarm 이미지 버튼
+        whiteAlarm = (ImageView) findViewById(R.id.whiteAlarm);
+        whiteAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        //------------------------------------------
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

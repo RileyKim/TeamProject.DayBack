@@ -79,8 +79,8 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         //intent에 페이스북 유저 정보를 담는다.
                         String[] userString = new String[] {object.toString()};
-                        intent.putExtra("user", object.toString());
-//                      intent.putExtra("id", resultId.toString());
+                        intent.putExtra("FacebookUser", object.toString());
+//                        intent.putExtra("id", resultId.toString());
                         startActivity(intent);
                     }
                 });
@@ -183,6 +183,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("id", id);
                     editor.putString("password", password);
                     editor.putBoolean("autoLogin", true);
+
                     editor.commit();
 
 
@@ -238,9 +239,9 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     //intent에 구글 유저 정보를 담는다.
                     //String[] userString = new String[] {acct.getDisplayName().toString()};
-                    intent.putExtra("user", acct.getDisplayName().toString());
+                    intent.putExtra("Google user", acct.getDisplayName().toString());
                     //String[] userEmail = new String[]{acct.getEmail().toString()};
-                    intent.putExtra("email", acct.getEmail().toString());
+                    intent.putExtra("Google email", acct.getEmail().toString());
                     Log.i("google", "" +intent);
 //                  intent.putExtra("id", resultId.toString());
                     startActivity(intent);

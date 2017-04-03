@@ -31,7 +31,8 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.taeksukim.android.dayback.SignUpActivity" />
-        <activity android:name="com.taeksukim.android.dayback.MemoActivity"></activity>
+        <activity android:name="com.taeksukim.android.dayback.MemoActivity" />
+        <activity android:name="com.taeksukim.android.dayback.GraphActivity"></activity>
     </application>
 
 </manifest>
