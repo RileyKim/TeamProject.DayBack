@@ -7,6 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.taeksukim.android.dayback.MainActivity"
     tools:showIn="@layout/app_bar_main"
+    android:background="@drawable/background2"
 
     >
 
@@ -22,7 +23,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:text="DayBack"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textSubTitle"
@@ -31,7 +33,8 @@
         android:layout_alignLeft="@+id/textTitle"
         android:layout_alignStart="@+id/textTitle"
         android:layout_below="@+id/textTitle"
-        android:text="Emotion Diary" />
+        android:text="Emotion Diary"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textTimeLine"
@@ -41,17 +44,18 @@
         android:layout_alignStart="@+id/textSubTitle"
         android:layout_below="@+id/textSubTitle"
         android:text="Timeline"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
 
-        android:layout_below="@+id/textTimeLine"
+        android:layout_above="@+id/bottonMenu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/bottonMenu" />
+        android:layout_below="@+id/textTimeLine" />
 
     <RelativeLayout
         android:id="@+id/bottonMenu"

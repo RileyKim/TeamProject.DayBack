@@ -7,9 +7,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.MenuBuilder;
-import android.support.v7.view.menu.MenuPopupHelper;
-import android.support.v7.widget.PopupMenu;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -19,19 +17,20 @@ import android.widget.Toast;
 
 import com.taeksukim.android.daybacklogin.R;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
-import static java.security.AccessController.getContext;
+
+
 
 
 public class MemoActivity extends AppCompatActivity {
 
-    Context context;
 
-    ImageView memoCancel, memoSave, tongue_out;
+
+    ImageView memoCancel, memoSave, tongue_out, happy, soso, sad, angry;
     TextView textDate;
     EditText editTitle, editContent;
+    IconizedMenu popup;
+
 
 
 
@@ -40,6 +39,11 @@ public class MemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memo);
+
+        happy = (ImageView) findViewById(R.id.happy);
+        soso = (ImageView) findViewById(R.id.soso);
+        sad = (ImageView) findViewById(R.id.sad);
+        angry = (ImageView) findViewById(R.id.angry);
 
 
         // memo date
@@ -119,17 +123,54 @@ public class MemoActivity extends AppCompatActivity {
             public void onClick(View v) {
                     switch (v.getId()) {
                         case R.id.tongue_out:
-//                            PopupMenu popUp = new PopupMenu(MemoActivity.this, v );
-//                            popUp.inflate(R.menu.emotion_menu);
-//                            getMenuInflater().inflate(R.menu.emotion_menu, popUp.getMenu());
-//                            popUp.setOnMenuItemClickListener(listener);
-//
-//                            //MenuPopupHelper menuHelper  = new MenuPopupHelper(Context context,);
-//
-//                            popUp.show();
-                            IconizedMenu popup = new IconizedMenu(MemoActivity.this, v);
+                            popup = new IconizedMenu(MemoActivity.this, v);
                             popup.inflate(R.menu.emotion_menu);
+                            popup.setOnMenuItemClickListener(new IconizedMenu.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem item) {
+                                    switch (item.getItemId()){
+                                        case R.id.happy:
+                                            tongue_out.setVisibility(View.GONE);
+                                            happy.setVisibility(View.VISIBLE);
+                                            soso.setVisibility(View.GONE);
+                                            sad.setVisibility(View.GONE);
+                                            angry.setVisibility(View.GONE);
+                                            Toast.makeText(MemoActivity.this, "행복해요ㅎ", Toast.LENGTH_SHORT).show();
+                                            break;
+
+                                        case R.id.soso :
+                                            tongue_out.setVisibility(View.GONE);
+                                            happy.setVisibility(View.GONE);
+                                            soso.setVisibility(View.VISIBLE);
+                                            sad.setVisibility(View.GONE);
+                                            angry.setVisibility(View.GONE);
+                                            Toast.makeText(MemoActivity.this, "그냥 그래요ㅋ", Toast.LENGTH_SHORT).show();
+                                            break;
+
+                                        case R.id.sad :
+                                            tongue_out.setVisibility(View.GONE);
+                                            happy.setVisibility(View.GONE);
+                                            soso.setVisibility(View.GONE);
+                                            sad.setVisibility(View.VISIBLE);
+                                            angry.setVisibility(View.GONE);
+                                            Toast.makeText(MemoActivity.this, "슬프네요..", Toast.LENGTH_SHORT).show();
+                                            break;
+
+                                        case R.id.angry :
+                                            tongue_out.setVisibility(View.GONE);
+                                            happy.setVisibility(View.GONE);
+                                            soso.setVisibility(View.GONE);
+                                            sad.setVisibility(View.GONE);
+                                            angry.setVisibility(View.VISIBLE);
+                                            Toast.makeText(MemoActivity.this, "짜증난다!!", Toast.LENGTH_SHORT).show();
+                                            break;
+                                    }
+                                    return false;
+                                }
+                            });
                             popup.show();
+
+
 
 
                     }
@@ -137,20 +178,256 @@ public class MemoActivity extends AppCompatActivity {
 
         });
 
+        happy = (ImageView) findViewById(R.id.happy);
+        happy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.happy:
+                        popup = new IconizedMenu(MemoActivity.this, v);
+                        popup.inflate(R.menu.emotion_menu);
+                        popup.setOnMenuItemClickListener(new IconizedMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()){
+                                    case R.id.happy:
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.VISIBLE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "행복해요ㅎ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.soso :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.VISIBLE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "그냥 그래요ㅋ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.sad :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.VISIBLE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "슬프네요..", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.angry :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.VISIBLE);
+                                        Toast.makeText(MemoActivity.this, "짜증난다!!", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+                                return false;
+                            }
+                        });
+                        popup.show();
+
+
+
+
+                }
+            }
+
+        });
+
+        soso = (ImageView) findViewById(R.id.soso);
+        soso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.soso:
+                        popup = new IconizedMenu(MemoActivity.this, v);
+                        popup.inflate(R.menu.emotion_menu);
+                        popup.setOnMenuItemClickListener(new IconizedMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()){
+                                    case R.id.happy:
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.VISIBLE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "행복해요ㅎ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.soso :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.VISIBLE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "그냥 그래요ㅋ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.sad :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.VISIBLE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "슬프네요..", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.angry :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.VISIBLE);
+                                        Toast.makeText(MemoActivity.this, "짜증난다!!", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+                                return false;
+                            }
+                        });
+                        popup.show();
+
+
+
+
+                }
+            }
+
+        });
+
+        sad = (ImageView) findViewById(R.id.sad);
+        sad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.sad:
+                        popup = new IconizedMenu(MemoActivity.this, v);
+                        popup.inflate(R.menu.emotion_menu);
+                        popup.setOnMenuItemClickListener(new IconizedMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()){
+                                    case R.id.happy:
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.VISIBLE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "행복해요ㅎ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.soso :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.VISIBLE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "그냥 그래요ㅋ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.sad :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.VISIBLE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "슬프네요..", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.angry :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.VISIBLE);
+                                        Toast.makeText(MemoActivity.this, "짜증난다!!", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+                                return false;
+                            }
+                        });
+                        popup.show();
+
+
+
+
+                }
+            }
+
+        });
+
+        angry = (ImageView) findViewById(R.id.angry);
+        angry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.angry:
+                        popup = new IconizedMenu(MemoActivity.this, v);
+                        popup.inflate(R.menu.emotion_menu);
+                        popup.setOnMenuItemClickListener(new IconizedMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()){
+                                    case R.id.happy:
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.VISIBLE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "행복해요ㅎ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.soso :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.VISIBLE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "그냥 그래요ㅋ", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.sad :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.VISIBLE);
+                                        angry.setVisibility(View.GONE);
+                                        Toast.makeText(MemoActivity.this, "슬프네요..", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                    case R.id.angry :
+                                        tongue_out.setVisibility(View.GONE);
+                                        happy.setVisibility(View.GONE);
+                                        soso.setVisibility(View.GONE);
+                                        sad.setVisibility(View.GONE);
+                                        angry.setVisibility(View.VISIBLE);
+                                        Toast.makeText(MemoActivity.this, "짜증난다!!", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+                                return false;
+                            }
+                        });
+                        popup.show();
+
+
+
+
+                }
+            }
+
+        });
+
     }
 
-    PopupMenu.OnMenuItemClickListener listener = new PopupMenu.OnMenuItemClickListener() {
-        @Override
-        public boolean onMenuItemClick(MenuItem item) {
-            switch (item.getItemId()){
-                case R.id.tongue_out :
-                    Toast.makeText(MemoActivity.this, "tongue", Toast.LENGTH_SHORT).show();
-                    break;
-            }
-            return false;
 
-        }
-    };
+
+
+
 
 
 }

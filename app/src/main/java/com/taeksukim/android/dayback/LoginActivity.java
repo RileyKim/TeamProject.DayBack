@@ -169,7 +169,6 @@ public class LoginActivity extends AppCompatActivity {
             editPw.setText(pref.getString("password", ""));
             autoLogin.setChecked(true);
 
-
         }
 
         autoLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -185,6 +184,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putBoolean("autoLogin", true);
 
                     editor.commit();
+
+
 
 
                 }else{
@@ -203,10 +204,6 @@ public class LoginActivity extends AppCompatActivity {
         startActivityForResult(signInIntent, RESOLVE_CONNECTION_REQUEST_CODE);
 
     }
-
-
-
-
 
     private boolean loginValidation(String id, String password) {
         if(pref.getString("id","").equals(id) && pref.getString("pw","").equals(password)) {

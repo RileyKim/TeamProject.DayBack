@@ -2,13 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/tongue_out"
-        android:title="tongue out"
-        android:icon="@drawable/tongue_out"
+        android:id="@+id/happy"
+        android:title="Happy"
+        android:icon="@drawable/happy"
         />
     <item
-        android:id="@+id/tongue_out2"
-        android:title="tongue out2"
-        android:icon="@drawable/tongue_out"
+    android:id="@+id/soso"
+    android:title="SoSo"
+    android:icon="@drawable/soso"
+    />
+
+    <item
+        android:id="@+id/sad"
+        android:title="Sad"
+        android:icon="@drawable/sad"
+        />
+
+    <item
+        android:id="@+id/angry"
+        android:title="Angry"
+        android:icon="@drawable/angry"
         />
 </menu>
