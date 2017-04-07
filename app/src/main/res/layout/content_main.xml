@@ -7,34 +7,20 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.taeksukim.android.dayback.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="@drawable/background2"
 
     >
 
 
     <TextView
-        android:id="@+id/textTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="8dp"
-        android:text="DayBack"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/textSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textTitle"
-        android:layout_alignStart="@+id/textTitle"
-        android:layout_below="@+id/textTitle"
+
+        android:layout_below="@id/toolbar"
+        android:layout_marginLeft="15dp"
         android:text="Emotion Diary"
-        android:textStyle="bold" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/textTimeLine"
@@ -43,19 +29,21 @@
         android:layout_alignLeft="@+id/textSubTitle"
         android:layout_alignStart="@+id/textSubTitle"
         android:layout_below="@+id/textSubTitle"
+        android:layout_marginLeft="10dp"
         android:text="Timeline"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textStyle="bold" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
 
         android:layout_above="@+id/bottonMenu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textTimeLine" />
+        android:layout_below="@+id/textTimeLine"
+        android:layout_marginTop="20dp" />
 
     <RelativeLayout
         android:id="@+id/bottonMenu"
