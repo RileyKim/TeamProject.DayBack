@@ -18,7 +18,7 @@ public class Data {
 
     long now = System.currentTimeMillis();
     Date date = new Date(now);
-    SimpleDateFormat today = new SimpleDateFormat("yyyy년 MM월 dd일 E HH:mm a");
+    SimpleDateFormat today = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm");
     public String strToday = today.format(now);
 
 

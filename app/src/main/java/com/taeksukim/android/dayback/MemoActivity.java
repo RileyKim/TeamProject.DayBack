@@ -52,35 +52,35 @@ public class MemoActivity extends AppCompatActivity {
         textDate.setText(data.strToday);
 
 
-        // 메모 취소버튼 클릭시 알림창.
-        memoCancel = (ImageView) findViewById(R.id.memoCancel);
-        memoCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoActivity.this);
-                //제목 세팅
-                alertDialogBuilder.setTitle("확인");
-                alertDialogBuilder.setMessage("작성을 취소하겠습니까?");
-
-                alertDialogBuilder
-                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialogBuilder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(MemoActivity.this, MainActivity.class);
-                                startActivity(intent);
-                            }
-                        });
-                AlertDialog dialog = alertDialogBuilder.create();
-                dialog.show();
-            }
-
-        });
+//        // 메모 취소버튼 클릭시 알림창.
+//        memoCancel = (ImageView) findViewById(R.id.memoCancel);
+//        memoCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoActivity.this);
+//                //제목 세팅
+//                alertDialogBuilder.setTitle("확인");
+//                alertDialogBuilder.setMessage("작성을 취소하겠습니까?");
+//
+//                alertDialogBuilder
+//                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.dismiss();
+//                            }
+//                        });
+//                alertDialogBuilder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                Intent intent = new Intent(MemoActivity.this, MainActivity.class);
+//                                startActivity(intent);
+//                            }
+//                        });
+//                AlertDialog dialog = alertDialogBuilder.create();
+//                dialog.show();
+//            }
+//
+//        });
 
 
         // 메모 저장버튼 클릭 시 알림창.

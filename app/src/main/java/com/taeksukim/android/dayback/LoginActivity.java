@@ -104,12 +104,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
 
-//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                //intent에 페이스북 유저 정보를 담는다.
-//                        String[] userString = new String[] {object.toString()};
-//                        intent.putExtra("FacebookUser", object.toString());
-//                        intent.putExtra("id", resultId.toString());
-//                        startActivity(intent);
                             }
 
 
@@ -155,25 +149,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        Button googleLogin = (Button) findViewById(R.id.googleLogin);
+        googleLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.sign_in_button:
-                        signIn();
-
-                        break;
-
-                }
+                signIn();
             }
         });
-
-
-
-
-
 
 
         //로그인
