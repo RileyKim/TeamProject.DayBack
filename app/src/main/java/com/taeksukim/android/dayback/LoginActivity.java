@@ -67,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        startActivity((new Intent(this, SplashActivity.class)));
+
         editId = (EditText) findViewById(R.id.editId);
         editPw = (EditText) findViewById(R.id.editPw);
         btnLogin = (Button) findViewById(R.id.btnLogin);

@@ -19,7 +19,8 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name="com.taeksukim.android.dayback.LoginActivity"
+        <activity
+            android:name="com.taeksukim.android.dayback.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,17 +28,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.taeksukim.android.dayback.SplashActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.taeksukim.android.dayback.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.taeksukim.android.dayback.SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.taeksukim.android.dayback.MemoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.taeksukim.android.dayback.GraphActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name="com.taeksukim.android.dayback.SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.taeksukim.android.dayback.MemoActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.taeksukim.android.dayback.GraphActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

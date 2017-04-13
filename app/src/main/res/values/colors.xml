@@ -7,6 +7,7 @@
     <color name="navigationBarColor">#34314c</color>
     <color name="colorbtn">#47b8e0</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 
 
 </resources>

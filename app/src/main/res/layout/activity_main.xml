@@ -1,25 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.taeksukim.android.dayback.MainActivity"
+    android:background="@color/black"
+    >
 
-    <include
-        layout="@layout/app_bar_main"
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
 
-</android.support.v4.widget.DrawerLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/bottonMenu">
+    </android.support.v4.view.ViewPager>
+    <RelativeLayout
+        android:id="@+id/bottonMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/navigationBarColor"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/whiteGraph"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/whiteCalendar"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:src="@drawable/whitegraph" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/whiteCalendar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
+            android:layout_toLeftOf="@+id/whitePen"
+            android:layout_toStartOf="@+id/whitePen"
+            android:src="@drawable/whitecalendar" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/whitePen"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/whitepen" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/whiteAlarm"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignTop="@+id/whitePen"
+            android:layout_marginLeft="52dp"
+            android:layout_marginStart="52dp"
+            android:layout_toEndOf="@+id/whitePen"
+            android:layout_toRightOf="@+id/whitePen"
+            android:src="@drawable/whitealarm" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/whiteAvatar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/whiteCalendar"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:src="@drawable/whiteavatar" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
