@@ -21,9 +21,18 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
 
+import com.taeksukim.android.dayback.domain.SignUpData;
+import com.taeksukim.android.dayback.server.ApiServer;
 import com.taeksukim.android.daybacklogin.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rv;
     ImageView whitePen, whiteAvatar, whiteGraph, whiteCalendar, whiteAlarm;
 
-
-
-
+    //retrofit
+    private SignUpData data;
+    Retrofit retrofit;
+    ApiServer apiserver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +53,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+        //retrofit
+        retrofit = new Retrofit.Builder().baseUrl(ApiServer.API_URL).addConverterFactory(GsonConverterFactory.create()).build();
+
+        apiserver= retrofit.create(ApiServer.class);
+
+        Call<SignUpData> result = apiserver.getSignUpData();
+
+
+        result.enqueue(new Callback<SignUpData>() {
+            @Override
+            public void onResponse(Call<SignUpData> call, Response<SignUpData> response) {
+                if(response.isSuccessful() && response.body() != null) {
+                    data = response.body();
+                    Log.i("server!!!!!!!!!!!", response.body().toString());
+                }else if(response.isSuccessful()){
+                    Log.i("Response Body Null", response.message());
+                }else {
+                    //404
+                    Log.i("Response Error Body", response.errorBody().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SignUpData> call, Throwable t) {
+                Log.i("Error", t.getMessage());
+            }
+
+
+        });
 
         //------------------------------------------
         //LoginActivity에서 MainActivity로 로그인 유저 정보가 잘 넘어오는지 확인
@@ -106,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
         whiteCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                startActivity(intent);
             }
         });
         //------------------------------------------
