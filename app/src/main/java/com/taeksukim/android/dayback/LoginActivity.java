@@ -29,11 +29,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.taeksukim.android.dayback.server.ApiServer;
 import com.taeksukim.android.daybacklogin.R;
 
 import org.json.JSONObject;
 
 import java.util.Arrays;
+
+import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -58,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
     String sfValue;
     String chId;
     String chPw;
+
 
 
 
