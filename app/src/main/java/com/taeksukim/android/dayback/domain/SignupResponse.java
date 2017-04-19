@@ -6,10 +6,12 @@ package com.taeksukim.android.dayback.domain;
 
 public class SignupResponse {
 
-     public int id;
-     public String email;
-     public String nickname;
+    public int id;
+    public String email;
+    public String password;
+    public String nickname;
     public String profile_photo;
+
 
     public int getId() {
         return id;
@@ -25,6 +27,14 @@ public class SignupResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNickname() {

@@ -1,5 +1,6 @@
 package com.taeksukim.android.dayback;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUpActivity extends AppCompatActivity {
+
 
 
     EditText editUpid, editUpname, editUppw;
@@ -67,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
                 if(response.isSuccessful() && response.body() != null) {
                     SignupResponse output = response.body();
-                    Log.i("output" ,output.id+"");
+                    Log.i("output" ,output.password+"");
                     Log.i("output" ,output.email+"");
                     Log.i("output" ,output.nickname+"");
                     Log.i("server!!!!!!!!!!!", response.body().toString());
@@ -76,7 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }else {
                     try {
                         //404
-                        Log.i("Response Error Body", response.code() + " " + response.errorBody().string());
+                        Log.i("Response Error Body", response.code() + "!!!!! " + response.errorBody().string());
                     }catch(IOException e){
                         e.printStackTrace();
                     }

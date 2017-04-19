@@ -29,14 +29,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.taeksukim.android.dayback.domain.SignupResponse;
+import com.taeksukim.android.dayback.domain.UserResponse;
 import com.taeksukim.android.dayback.server.ApiServer;
 import com.taeksukim.android.daybacklogin.R;
 
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Arrays;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -62,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
     String chId;
     String chPw;
 
+    //retrofit
+
+    Retrofit retrofit;
+    ApiServer apiserver;
+
 
 
 
@@ -80,6 +92,13 @@ public class LoginActivity extends AppCompatActivity {
         autoLogin = (CheckBox) findViewById(R.id.autoLogin);
 
 
+
+        //retrofit
+        retrofit = new Retrofit.Builder()
+//                .client(httpClient.build())
+                .baseUrl(ApiServer.API_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
         // 페이스 북
         faceLogin = (Button) findViewById(R.id.faceLogin);
@@ -169,6 +188,46 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                //retrofit Login
+
+                apiserver= retrofit.create(ApiServer.class);
+
+                Call<UserResponse> result = apiserver.getUserData(
+                        "aldkjfladksf@naver.com","alsdkajdhfja"
+                );
+
+
+                result.enqueue(new Callback<UserResponse>() {
+                    @Override
+                    public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                        if(response.isSuccessful() && response.body() != null) {
+                            UserResponse output = response.body();
+                            Log.i("output" ,output.key+"");
+
+
+                            Log.i("server!!!!!!!!!!!", response.body().toString());
+                        }else if(response.isSuccessful()){
+                            Log.i("Response Body Null", response.message());
+                        }else {
+                            try {
+                                //404
+                                Log.i("Response Error Body", response.code() + "!!!!! " + response.errorBody().string());
+                            }catch(IOException e){
+                                e.printStackTrace();
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserResponse> call, Throwable t) {
+                        Log.i("Error", t.getMessage());
+                    }
+
+
+                });
+
                 startActivity(intent);
             }
         });
