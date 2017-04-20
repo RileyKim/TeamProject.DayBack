@@ -7,8 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.taeksukim.android.daybacklogin.R;
+
+import java.util.Random;
 
 
 /**
@@ -19,6 +22,14 @@ class PageFragment extends Fragment{
 
     private int mPagerNumber;
 
+    int[] img = {R.drawable.background1,
+                 R.drawable.background2,
+                 R.drawable.background3,
+                 R.drawable.background4,
+                 R.drawable.background5,
+                 R.drawable.background6,
+                 R.drawable.background7,
+                 R.drawable.background8};
 
     public static PageFragment create(int pageNumber) {
         PageFragment fragment = new PageFragment();
@@ -34,6 +45,10 @@ class PageFragment extends Fragment{
         super.onCreate(savedInstanceState);
         mPagerNumber = getArguments().getInt("page");
 
+
+
+
+
     }
 
     @Nullable
@@ -43,6 +58,9 @@ class PageFragment extends Fragment{
 
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_page,container,false);
         v.findViewById(R.id.title);
+        Random ram = new Random();
+        int num = ram.nextInt(img.length);
+        v.setBackgroundResource(img[num]);
         return v;
 
     }

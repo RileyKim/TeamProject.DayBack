@@ -7,13 +7,18 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.taeksukim.android.dayback.domain.LoginSet;
 import com.taeksukim.android.dayback.domain.SignupResponse;
 import com.taeksukim.android.dayback.server.ApiServer;
 import com.taeksukim.android.daybacklogin.R;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,23 +49,31 @@ public class SignUpActivity extends AppCompatActivity {
 
         layoutSignup = (LinearLayout) findViewById(R.id.layoutSignup);
 
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+//        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+//        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+//
+//        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+//        httpClient.addInterceptor(logging);
 
-        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.addInterceptor(logging);
+        RequestBody email = RequestBody.create(MultipartBody.FORM, "tafgfsrfa@naver.com");
+        RequestBody password = RequestBody.create(MultipartBody.FORM, "alalalal");
+        RequestBody nickname = RequestBody.create(MultipartBody.FORM, "alalalal");
 
         //retrofit
         retrofit = new Retrofit.Builder()
-                .client(httpClient.build())
+//                .client(httpClient.build())
                 .baseUrl(ApiServer.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         apiserver= retrofit.create(ApiServer.class);
 
+
+
+        LoginSet loginSet = new LoginSet("tata@naver.com", "asdasdasd","alalal");
         Call<SignupResponse> result = apiserver.getSignUpData(
-                "taeksu11@gmail.com","Plpop123","Plpop123",""
+                loginSet
+
         );
 
 
