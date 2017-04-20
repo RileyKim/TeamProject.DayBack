@@ -10,7 +10,7 @@
     android:baselineAligned="false">
 
     <EditText
-        android:id="@+id/editUpid"
+        android:id="@+id/editUpemail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

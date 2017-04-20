@@ -91,6 +91,11 @@ public class LoginActivity extends AppCompatActivity {
         btnSignup = (Button) findViewById(R.id.btnSignup);
         autoLogin = (CheckBox) findViewById(R.id.autoLogin);
 
+        Intent signupintent = getIntent();
+        String email = signupintent.getStringExtra("email");
+        if(email != null){
+            editId.setText(email);
+        }
 
 
         //retrofit
